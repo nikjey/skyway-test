@@ -84,12 +84,13 @@ const token = new SkyWayAuthToken({
   }
 
   // Create SkyWay context with the generated token
-  const context = await SkyWayContext.Create(token);
 
   joinButton.onclick = async () => {
     if (roomNameInput.value === "") return;
 
     // Create or join a SkyWay room
+    const context = await SkyWayContext.Create(token);
+
     const room = await SkyWayRoom.FindOrCreate(context, {
       type: "sfu",
       name: roomNameInput.value,
@@ -97,6 +98,11 @@ const token = new SkyWayAuthToken({
 
     let me = await room.join();
     myId.textContent = me.id;
+
+    const { audio, video } =
+      await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
+    audio.attach(localAudio);
+    video.attach(localVideo);
 
     // Publish local streams to the room
     const localAudioPublication = await me.publish(audio);
