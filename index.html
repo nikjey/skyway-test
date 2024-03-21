@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyWay Sample</title>
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>SkyWayハンズオンサンプル</h1>
+  <div class="grid-container">
+    <div id="local" class="item">
+      <video id="local-video" autoplay playsinline></video>
+      <audio id="local-audio" autoplay muted controls></audio>
+      <p class="id-text">ID: <span id="my-id"></span></p>
+      <button id="join-button" class="item btn btn-primary">Room作成/参加</button>
+      <input id="room-name" class="form-control" placeholder="Room名"></input>
+      <button id="local-mute-buton" class="item btn btn-secondary" disabled>映像・音声OFF</button>
+      <button id="leave-button" class="item btn btn-danger" disabled>Room閉じる</button>
+    </div>
+    <div id="remote" class="item">
+      <video id="remote-video" autoplay playsinline></video>
+      <audio id="remote-audio" autoplay controls></audio>
+      <p class="id-text">ID: <span id="remote-id"></span></p>
+      <div id="button-area"></div>
+    </div>
+  </div>
+
+  <!-- SkyWay SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@skyway-sdk/room/dist/skyway_room-latest.js"></script>
+  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
